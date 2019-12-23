@@ -8,28 +8,28 @@ namespace po_projekt
 {
     class oferta :  samochody , IOferta
     {
-        LinkedList<samochody> Oferta = new LinkedList<samochody>();
+        public LinkedList<samochody> Oferta = new LinkedList<samochody>();
         public int Ilość_samochodów_do_wypożyczenia = 0;
 
-        public void Dodaj(samochody s)
+        void IOferta.Dodaj(samochody s)
         {
             Oferta.AddLast(s);
             Ilość_samochodów_do_wypożyczenia++;
         }
 
-        public void Usuń(samochody s)
+        void IOferta.Usuń(samochody s)
         {
             Oferta.Remove(s);
             Ilość_samochodów_do_wypożyczenia--;
         }
 
-        public void Wyczysc()
+        void IOferta.Wyczysc()
         {
             Oferta.Clear();
             Ilość_samochodów_do_wypożyczenia = 0;
         }
 
-        public int PodajIlosc()
+        int IOferta.PodajIlosc()
         {
             Console.WriteLine("Ilość samochodów do wypożyczenia: \n"); 
             return Ilość_samochodów_do_wypożyczenia ;
@@ -48,6 +48,15 @@ namespace po_projekt
             return "";
         }
 
+        void IOferta.rezerwuj(samochody s1)
+        {
+            throw new NotImplementedException();
+        }
+
+        samochody IOferta.wybór_samochodu_do_rezerwacji()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

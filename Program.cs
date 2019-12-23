@@ -53,8 +53,7 @@ namespace po_projekt
                         else if(wybór == "rezerwuj")
                         {
                             Console.WriteLine("Wybierz samochodów do rezerwacji:");
-                            
-                            
+                            buffor.rezerwuj(wybór_samochodu_do_rezerwacji()); // nie wiem dlaczego nie chce wziac funkcji z klasy rezerwacja
                         }
                         else
                         {
@@ -188,7 +187,10 @@ namespace po_projekt
 
         }
 
-
+        //private static samochody wybór_samochodu_do_rezerwacji()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 
 }
