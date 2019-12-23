@@ -41,13 +41,20 @@ namespace po_projekt
                 {
                     Console.WriteLine("Wybrano opcję : klient");
                     Console.WriteLine("Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
+                    Console.WriteLine("Jeżeli chcesz zarezerwować samochód wybierz: rezerwuj");
                     string wybór;
                     do
                     {
                         wybór = Console.ReadLine();
-                        if(wybór == "oferta")
+                        if(wybór == "oferta") 
                         {                      
                             Console.WriteLine(buffor);
+                        }
+                        else if(wybór == "rezerwuj")
+                        {
+                            Console.WriteLine("Wybierz samochodów do rezerwacji:");
+                            
+                            
                         }
                         else
                         {
