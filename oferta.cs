@@ -10,6 +10,13 @@ namespace po_projekt
     {
         public LinkedList<samochody> Oferta = new LinkedList<samochody>();
         public int Ilość_samochodów_do_wypożyczenia = 0;
+        public enum rezerw { Zarezerwowany = 1, Niezarezerwowany = 0 };
+        private rezerw Rezerwacja;
+        int Ilość_samochodów_zarezerwowanych;
+
+
+        internal rezerw Rezerwacja1 { get => Rezerwacja; set => Rezerwacja = value; }
+        public int Ilość_samochodów_zarezerwowanych1 { get => Ilość_samochodów_zarezerwowanych; set => Ilość_samochodów_zarezerwowanych = value; }
 
         void IOferta.Dodaj(samochody s)
         {
@@ -50,12 +57,29 @@ namespace po_projekt
 
         void IOferta.rezerwuj(samochody s1)
         {
-            throw new NotImplementedException();
+            Rezerwacja1 = oferta.rezerw.Zarezerwowany;
+            Ilość_samochodów_do_wypożyczenia--;
+            Ilość_samochodów_zarezerwowanych++;
         }
 
         samochody IOferta.wybór_samochodu_do_rezerwacji()
         {
-            throw new NotImplementedException();
+            samochody s = new samochody();
+            string wybór;
+            foreach (samochody element in Oferta)
+            {
+                Console.WriteLine("Jeżeli chcesz wypożyczyć to auto wybierz: TAK");
+                Console.WriteLine(element);
+                wybór = Console.ReadLine();
+                if (wybór == "TAK")
+                {
+                    s = element;
+                    break;
+                }
+                else
+                    continue;
+            }
+            return s;
         }
     }
 }

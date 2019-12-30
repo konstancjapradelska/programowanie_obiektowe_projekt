@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 //ofc
 namespace po_projekt
 {
@@ -33,7 +34,8 @@ namespace po_projekt
             Console.WriteLine("Proszę wybrać opcję:\n");
             Console.WriteLine("Jestem klientem -> k");
             Console.WriteLine("Jestem pracownikiem -> p");
-            string opcja; 
+            string opcja;
+
             do
             {
                 opcja = Console.ReadLine();
@@ -53,7 +55,9 @@ namespace po_projekt
                         else if(wybór == "rezerwuj")
                         {
                             Console.WriteLine("Wybierz samochodów do rezerwacji:");
-                            buffor.rezerwuj(wybór_samochodu_do_rezerwacji()); // nie wiem dlaczego nie chce wziac funkcji z klasy rezerwacja
+                            // buffor.rezerwuj(wybór_samochodu_do_rezerwacji()); // nie wiem dlaczego nie chce wziac funkcji z klasy rezerwacja
+
+                            buffor.rezerwuj(buffor.wybór_samochodu_do_rezerwacji());
                         }
                         else
                         {
