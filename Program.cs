@@ -21,15 +21,15 @@ namespace po_projekt
             samochody s6 = new samochody { Klasa1 = samochody.klasa.klasa_D, Marka1 = "Kia", Model1 = "Optima", Silnik1 = samochody.silnik.diesel, Skrzynia_Biegów1 = samochody.skrzynia_biegów.automatyczna, Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia.hatchback };
             samochody s7 = new samochody { Klasa1 = samochody.klasa.klasa_E, Marka1 = "BMW", Model1 = "525", Silnik1 = samochody.silnik.diesel, Skrzynia_Biegów1 = samochody.skrzynia_biegów.automatyczna, Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia.sedan };
             samochody s8 = new samochody { Klasa1 = samochody.klasa.klasa_E, Marka1 = "BMW", Model1 = "550", Silnik1 = samochody.silnik.benzynowy, Skrzynia_Biegów1 = samochody.skrzynia_biegów.automatyczna, Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia.combi };
-            IOferta buffor = (IOferta)Oferta;
-            buffor.Dodaj(s1);
-            buffor.Dodaj(s2);
-            buffor.Dodaj(s3);
-            buffor.Dodaj(s4);
-            buffor.Dodaj(s5);
-            buffor.Dodaj(s6);
-            buffor.Dodaj(s7);
-            buffor.Dodaj(s8);
+            //IOferta buffor = (IOferta)Oferta;
+            Oferta.Dodaj(s1);
+            Oferta.Dodaj(s2);
+            Oferta.Dodaj(s3);
+            Oferta.Dodaj(s4);
+            Oferta.Dodaj(s5);
+            Oferta.Dodaj(s6);
+            Oferta.Dodaj(s7);
+            Oferta.Dodaj(s8);
 #endregion
             Console.WriteLine("Proszę wybrać opcję:\n");
             Console.WriteLine("Jestem klientem -> k");
@@ -50,21 +50,22 @@ namespace po_projekt
                         wybór = Console.ReadLine();
                         if(wybór == "oferta") 
                         {                      
-                            Console.WriteLine(buffor);
+                            Console.WriteLine(Oferta);
                         }
                         else if(wybór == "rezerwuj")
                         {
                             Console.WriteLine("Wybierz samochodów do rezerwacji:");
                             // buffor.rezerwuj(wybór_samochodu_do_rezerwacji()); // nie wiem dlaczego nie chce wziac funkcji z klasy rezerwacja
-
-                            buffor.rezerwuj(buffor.wybór_samochodu_do_rezerwacji());
+                            rezerwacja r1 = new rezerwacja();
+                            //buffor.rezerwuj(buffor.wybór_samochodu_do_rezerwacji());e
+                            r1.wybór_samochodu_do_rezerwacji(Oferta);
                         }
                         else
                         {
                             Console.WriteLine("Nie wybrano żadnej z opcji");
                         }
                     } 
-                    while (wybór != "oferta") ;
+                    while (wybór != "koniec" /*|| wybór != "rezerwuj"*/) ;
                     break;
                 }
                 else if (opcja == "p")
@@ -156,11 +157,11 @@ namespace po_projekt
                                     }
                                     while ((nadwozie != "combi") || (nadwozie != "hatchback") || (nadwozie != "sedan"));
                                                                       
-                                    buffor.Dodaj(d);
+                                    Oferta.Dodaj(d);
                                 }
                                 if (wybór == "oferta")
                                 {
-                                    Console.WriteLine(buffor);
+                                    Console.WriteLine(Oferta);
                                 }
                                 else
                                 {

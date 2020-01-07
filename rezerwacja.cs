@@ -8,7 +8,7 @@ namespace po_projekt
 {
     class rezerwacja : oferta, IOferta
     {
-        public enum rezerw { Zarezerwowany =  1 , Niezarezerwowany = 0 };
+        //public enum rezerw { Zarezerwowany =  1 , Niezarezerwowany = 0 };
         private rezerw Rezerwacja;
         int Ilość_samochodów_zarezerwowanych;
 
@@ -16,30 +16,31 @@ namespace po_projekt
         internal rezerw Rezerwacja1 { get => Rezerwacja; set => Rezerwacja = value; }
         public int Ilość_samochodów_zarezerwowanych1 { get => Ilość_samochodów_zarezerwowanych; set => Ilość_samochodów_zarezerwowanych = value; }
         
-        void IOferta.rezerwuj(samochody s)
+        public virtual void rezerwuj(samochody s)
         {
-            Rezerwacja1 = rezerwacja.rezerw.Zarezerwowany;
+            s.Rezerwacja = rezerw.Zarezerwowany;
             Ilość_samochodów_do_wypożyczenia--;
             Ilość_samochodów_zarezerwowanych++;
         }
-        samochody IOferta.wybór_samochodu_do_rezerwacji()
+        public samochody wybór_samochodu_do_rezerwacji(oferta s)
         {
-            samochody s = new samochody();
+            samochody k = new samochody();
             string wybór;
-            foreach(samochody element in Oferta)
+            foreach(samochody element in s.Oferta)
             {
                 Console.WriteLine("Jeżeli chcesz wypożyczyć to auto wybierz: TAK");
                 Console.WriteLine(element);
                 wybór = Console.ReadLine();
                 if (wybór == "TAK")
                 {
-                    s = element;
+                    k = element;
+                    rezerwuj(k);
                     break;
                 }
                 else
                     continue;
             }
-            return s;
+            return k;
         }
         public override string ToString()
         {

@@ -12,6 +12,7 @@ namespace po_projekt
         public enum silnik { benzynowy = 1, diesel = 2 };
         public enum skrzynia_biegów { automatyczna = 1, manualna = 2 }
         public enum rodzaj_nadwozia { combi = 1, hatchback = 2, sedan = 3 }
+        public enum rezerw { Zarezerwowany = 1, Niezarezerwowany = 0 };
 
         private klasa Klasa;
         private string Marka;
@@ -19,6 +20,7 @@ namespace po_projekt
         private silnik Silnik;
         private skrzynia_biegów Skrzynia_Biegów;
         private rodzaj_nadwozia Rodzaj_Nadwozia;
+        private rezerw rezerwacja;
 
         internal klasa Klasa1 { get => Klasa; set => Klasa = value; }
         public string Marka1 { get => Marka; set => Marka = value; }
@@ -26,6 +28,7 @@ namespace po_projekt
         internal skrzynia_biegów Skrzynia_Biegów1 { get => Skrzynia_Biegów; set => Skrzynia_Biegów = value; }
         internal rodzaj_nadwozia Rodzaj_Nadwozia1 { get => Rodzaj_Nadwozia; set => Rodzaj_Nadwozia = value; }
         public string Model1 { get => Model; set => Model = value; }
+        internal rezerw Rezerwacja { get => rezerwacja; set => rezerwacja = value; }
 
         public samochody()
         {
@@ -38,6 +41,7 @@ namespace po_projekt
             Silnik = silnik;
             Skrzynia_Biegów = skrzynia_Biegów;
             Rodzaj_Nadwozia = rodzaj_Nadwozia;
+            Rezerwacja = rezerw.Niezarezerwowany;
         }
          
         public override string ToString()
