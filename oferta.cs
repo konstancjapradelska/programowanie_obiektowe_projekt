@@ -24,22 +24,43 @@ namespace po_projekt
             Ilość_samochodów_do_wypożyczenia++;
         }
 
-        void IOferta.Usuń(samochody s)
+        public virtual void Usuń(samochody s)
         {
             Oferta.Remove(s);
             Ilość_samochodów_do_wypożyczenia--;
         }
 
-        void IOferta.Wyczysc()
+        public void Wyczysc()
         {
             Oferta.Clear();
             Ilość_samochodów_do_wypożyczenia = 0;
         }
 
-        int IOferta.PodajIlosc()
+        public int PodajIlosc()
         {
             Console.WriteLine("Ilość samochodów do wypożyczenia: \n"); 
             return Ilość_samochodów_do_wypożyczenia ;
+        }
+
+        public samochody wybór_samochodu_do_usunięcia()
+        {
+            samochody k = new samochody();
+            string wybór;
+            foreach (samochody element in Oferta)
+            {
+                Console.WriteLine("Jeżeli chcesz usunąć to auto wybierz: TAK");
+                Console.WriteLine(element);
+                wybór = Console.ReadLine();
+                if (wybór == "TAK")
+                {
+                    k = element;
+                    
+                    break;
+                }
+                else
+                    continue;
+            }
+            return k;
         }
 
         public override string ToString()

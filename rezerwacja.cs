@@ -28,7 +28,7 @@ namespace po_projekt
             string wybór;
             foreach(samochody element in s.Oferta)
             {
-                Console.WriteLine("Jeżeli chcesz wypożyczyć to auto wybierz: TAK");
+                Console.WriteLine("Jeżeli chcesz zarezerwować to auto wybierz: TAK");
                 Console.WriteLine(element);
                 wybór = Console.ReadLine();
                 if (wybór == "TAK")

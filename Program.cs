@@ -21,7 +21,7 @@ namespace po_projekt
             samochody s6 = new samochody { Klasa1 = samochody.klasa.klasa_D, Marka1 = "Kia", Model1 = "Optima", Silnik1 = samochody.silnik.diesel, Skrzynia_Biegów1 = samochody.skrzynia_biegów.automatyczna, Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia.hatchback };
             samochody s7 = new samochody { Klasa1 = samochody.klasa.klasa_E, Marka1 = "BMW", Model1 = "525", Silnik1 = samochody.silnik.diesel, Skrzynia_Biegów1 = samochody.skrzynia_biegów.automatyczna, Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia.sedan };
             samochody s8 = new samochody { Klasa1 = samochody.klasa.klasa_E, Marka1 = "BMW", Model1 = "550", Silnik1 = samochody.silnik.benzynowy, Skrzynia_Biegów1 = samochody.skrzynia_biegów.automatyczna, Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia.combi };
-            //IOferta buffor = (IOferta)Oferta;
+            
             Oferta.Dodaj(s1);
             Oferta.Dodaj(s2);
             Oferta.Dodaj(s3);
@@ -31,22 +31,27 @@ namespace po_projekt
             Oferta.Dodaj(s7);
             Oferta.Dodaj(s8);
 #endregion
-            Console.WriteLine("Proszę wybrać opcję:\n");
-            Console.WriteLine("Jestem klientem -> k");
-            Console.WriteLine("Jestem pracownikiem -> p");
+            
             string opcja;
 
             do
-            {
+            {   Console.WriteLine("Proszę wybrać opcję:\n");
+                Console.WriteLine("Jestem klientem -> k");
+                Console.WriteLine("Jestem pracownikiem -> p");
+                Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
                 opcja = Console.ReadLine();
                 if (opcja == "k")
                 {
                     Console.WriteLine("Wybrano opcję : klient");
-                    Console.WriteLine("Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
-                    Console.WriteLine("Jeżeli chcesz zarezerwować samochód wybierz: rezerwuj");
+                   
                     string wybór;
                     do
                     {
+                        Console.WriteLine("Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
+                        Console.WriteLine("Jeżeli chcesz zarezerwować samochód wybierz: rezerwuj");
+                        Console.WriteLine("Jeżeli chcesz wypożyczyć samochód wybierz: wypożycz");
+                        Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
+                        Console.WriteLine("Twój wybór:");
                         wybór = Console.ReadLine();
                         if(wybór == "oferta") 
                         {                      
@@ -54,19 +59,25 @@ namespace po_projekt
                         }
                         else if(wybór == "rezerwuj")
                         {
-                            Console.WriteLine("Wybierz samochodów do rezerwacji:");
-                            // buffor.rezerwuj(wybór_samochodu_do_rezerwacji()); // nie wiem dlaczego nie chce wziac funkcji z klasy rezerwacja
+                            Console.WriteLine("Wybierz samochodów do rezerwacji:");                           
                             rezerwacja r1 = new rezerwacja();
-                            //buffor.rezerwuj(buffor.wybór_samochodu_do_rezerwacji());e
                             r1.wybór_samochodu_do_rezerwacji(Oferta);
                         }
+                        else if (wybór == "wypożycz")
+                        {
+                            Console.WriteLine("Wybierz samochodów do wypożyczenia:");
+                            wypożyczanie w1 = new wypożyczanie();
+                            w1.wypożycz(w1.wybór_samochodu_do_wypożyczenia(Oferta),Oferta);
+                           
+                        }
+                        else if (wybór == "koniec")
+                            break;
                         else
                         {
                             Console.WriteLine("Nie wybrano żadnej z opcji");
                         }
                     } 
-                    while (wybór != "koniec" /*|| wybór != "rezerwuj"*/) ;
-                    break;
+                    while (wybór != "koniec" ) ;
                 }
                 else if (opcja == "p")
                 {
@@ -79,11 +90,15 @@ namespace po_projekt
                         if(hasło == "programowanie")
                         {
                             Console.WriteLine("Poprawe hasło, zapraszamy.\n");
-                            Console.WriteLine("Jeżeli chcesz dodać samochód do oferty wybierz: dodaj");
-                            Console.WriteLine("Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
+                            
                             string wybór;
                             do
                             {
+                                Console.WriteLine("Jeżeli chcesz dodać samochód do oferty wybierz: dodaj");
+                                Console.WriteLine("Jeżeli chcesz usunąć samochód z oferty wybierz: usuń");
+                                Console.WriteLine("Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
+                                Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
+                                Console.WriteLine("Twój wybór:");
                                 wybór = Console.ReadLine();
                                 if (wybór == "dodaj")
                                 {
@@ -159,16 +174,22 @@ namespace po_projekt
                                                                       
                                     Oferta.Dodaj(d);
                                 }
-                                if (wybór == "oferta")
+                                else if (wybór == "usuń")
+                                {
+                                    Oferta.Usuń(Oferta.wybór_samochodu_do_usunięcia());
+                                }
+                                else if (wybór == "oferta")
                                 {
                                     Console.WriteLine(Oferta);
                                 }
-                                else
+                                else if (wybór == "koniec")
+                                    break;
+                                else 
                                 {
                                     Console.WriteLine("Nie wybrano żadnej z opcji");
                                 }
                             }
-                            while (wybór != "wyjdź");
+                            while (wybór != "koniec");
 
                             Console.ReadKey();
                             break;
@@ -179,23 +200,20 @@ namespace po_projekt
                         }
                     }
                     while (hasło != "programowanie");
-                    break;
                 }
+                else if (opcja == "koniec")
+                    break;
                 else
                 {
-                    Console.WriteLine("Proszę wybrać ,k' lub ,p'.");
+                    Console.WriteLine("Proszę wybrać ,k' lub ,p' lub 'koniec'.");
                 }
             }
-            while ((opcja != "k") || (opcja != "p"));
+            while (opcja != "koniec");
 
             Console.ReadKey();
 
         }
 
-        //private static samochody wybór_samochodu_do_rezerwacji()
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 
 }
