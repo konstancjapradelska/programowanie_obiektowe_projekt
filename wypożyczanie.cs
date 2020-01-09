@@ -25,8 +25,7 @@ namespace po_projekt
                 wybór = Console.ReadLine();
                 if (wybór == "TAK")
                 {
-                    k = element;
-                    //wypożycz(k,oferta Oferta);
+                    k = element;                    
                     break;
                 }
                 else

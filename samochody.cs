@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace po_projekt
 {
-    class samochody
+    [Serializable]
+    public class samochody
     {
         public enum klasa { klasa_A = 1, klasa_B = 2, klasa_C = 3, klasa_D = 4, klasa_E = 5 }
         public enum silnik { benzynowy = 1, diesel = 2 };
@@ -22,13 +23,13 @@ namespace po_projekt
         private rodzaj_nadwozia Rodzaj_Nadwozia;
         private rezerw rezerwacja;
 
-        internal klasa Klasa1 { get => Klasa; set => Klasa = value; }
+        public klasa Klasa1 { get => Klasa; set => Klasa = value; }
         public string Marka1 { get => Marka; set => Marka = value; }
-        internal silnik Silnik1 { get => Silnik; set => Silnik = value; }
-        internal skrzynia_biegów Skrzynia_Biegów1 { get => Skrzynia_Biegów; set => Skrzynia_Biegów = value; }
-        internal rodzaj_nadwozia Rodzaj_Nadwozia1 { get => Rodzaj_Nadwozia; set => Rodzaj_Nadwozia = value; }
+        public silnik Silnik1 { get => Silnik; set => Silnik = value; }
+        public skrzynia_biegów Skrzynia_Biegów1 { get => Skrzynia_Biegów; set => Skrzynia_Biegów = value; }
+        public rodzaj_nadwozia Rodzaj_Nadwozia1 { get => Rodzaj_Nadwozia; set => Rodzaj_Nadwozia = value; }
         public string Model1 { get => Model; set => Model = value; }
-        internal rezerw Rezerwacja { get => rezerwacja; set => rezerwacja = value; }
+        public rezerw Rezerwacja { get => rezerwacja; set => rezerwacja = value; }
 
         public samochody()
         {

@@ -210,6 +210,12 @@ namespace po_projekt
             }
             while (opcja != "koniec");
 
+
+
+            oferta.ZapiszXML("zapis.xml", Oferta);
+            //oferta b2 = new oferta();
+            //Oferta = Oferta.OdczytajXML("zapis.xml") as oferta;
+            //Console.WriteLine(Oferta); 
             Console.ReadKey();
 
         }

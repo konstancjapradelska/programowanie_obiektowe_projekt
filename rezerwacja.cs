@@ -8,8 +8,6 @@ namespace po_projekt
 {
     class rezerwacja : oferta, IOferta
     {
-        //public enum rezerw { Zarezerwowany =  1 , Niezarezerwowany = 0 };
-        private rezerw Rezerwacja;
         int Ilość_samochodów_zarezerwowanych;
 
         
@@ -26,7 +24,7 @@ namespace po_projekt
         {
             samochody k = new samochody();
             string wybór;
-            foreach(samochody element in s.Oferta)
+            foreach (samochody element in s.Oferta)
             {
                 Console.WriteLine("Jeżeli chcesz zarezerwować to auto wybierz: TAK");
                 Console.WriteLine(element);
@@ -42,13 +40,11 @@ namespace po_projekt
             }
             return k;
         }
+
         public override string ToString()
         {
             Console.WriteLine("\nIlość zarezerwowanych samochdów: " + Ilość_samochodów_zarezerwowanych);
-            return base.ToString() ;
+            return base.ToString();
         }
-
-
-
     }
 }
