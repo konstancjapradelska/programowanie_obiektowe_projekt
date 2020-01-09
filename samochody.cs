@@ -49,19 +49,6 @@ namespace po_projekt
         {
             return "\n" + "             Klasa: " + Klasa + "\n" + "             Marka: " + Marka + "\n" + "             Model: " + Model + "\n" + "             Silnik: " + Silnik + "\n" + "             Skrzynia biegów: " + Skrzynia_Biegów + "\n" + "             Rodzaj nadwozia: " + Rodzaj_Nadwozia;
         }
-        //samochody s9 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s10 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s11 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s12 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s13 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s14 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s15 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s16 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s17 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s18 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s19 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-        //samochody s20 = new samochody { Klasa1 = samochody.klasa. , Marka1 =  , Silnik1 = samochody.silnik. , Skrzynia_Biegów1 = samochody.skrzynia_biegów. , Rodzaj_Nadwozia1 = samochody.rodzaj_nadwozia. };
-
 
     }
 }

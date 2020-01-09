@@ -12,11 +12,5 @@ namespace po_projekt
         void Usuń(samochody s);
         void Wyczysc();
         int PodajIlosc();
-        //void rezerwuj(samochody s1);
-        //samochody wybór_samochodu_do_rezerwacji();
-
-
-
-
     }
 }

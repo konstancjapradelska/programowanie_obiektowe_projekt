@@ -211,12 +211,13 @@ namespace po_projekt
             while (opcja != "koniec");
 
 
-
+            #region serializacja
             oferta.ZapiszXML("zapis.xml", Oferta);
-            //oferta b2 = new oferta();
-            //Oferta = Oferta.OdczytajXML("zapis.xml") as oferta;
-            //Console.WriteLine(Oferta); 
+            oferta klon = new oferta();
+            klon = klon.OdczytajXML("zapis.xml") as oferta;
+            Console.WriteLine(klon);
             Console.ReadKey();
+            #endregion
 
         }
 

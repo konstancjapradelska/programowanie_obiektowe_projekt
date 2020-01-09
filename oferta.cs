@@ -77,24 +77,29 @@ namespace po_projekt
             return k;
         }
 
-
-
         public static void ZapiszXML(string nazwa, oferta xmloferta)
         {
             xmloferta.lista = new List<samochody>(xmloferta.Oferta);
-            XmlSerializer serializer = new XmlSerializer(typeof(oferta));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<samochody>));
             StreamWriter writer = new StreamWriter(nazwa);
-            serializer.Serialize(writer, xmloferta);
+            serializer.Serialize(writer, xmloferta.lista);
             writer.Close();
         }
 
         public object OdczytajXML(string nazwa)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(oferta));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<samochody>));
             StreamReader reader = new StreamReader(nazwa);
-            oferta xmloferta = serializer.Deserialize(reader) as oferta;
+            List<samochody> newlist = new List<samochody>();
+            newlist = serializer.Deserialize(reader) as List<samochody>;
             reader.Close();
-            xmloferta.Oferta = new LinkedList<samochody>(xmloferta.lista);
+            oferta xmloferta = new oferta();
+            xmloferta.Oferta = new LinkedList<samochody>(newlist);
+            foreach( samochody s in xmloferta.Oferta)
+            {
+                if (s.Rezerwacja == 0)
+                    xmloferta.Ilość_samochodów_do_wypożyczenia++;
+            }
             return xmloferta;
         }
 
