@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="akcesoria.cs" />
     <Compile Include="IOferta.cs" />
+    <Compile Include="ModelCOMPARATOR.cs" />
     <Compile Include="oferta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

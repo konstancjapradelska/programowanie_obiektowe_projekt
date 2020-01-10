@@ -103,6 +103,20 @@ namespace po_projekt
             return xmloferta;
         }
 
+        public void Sortuj_po_klasie_samochodu()
+        {
+            lista = new List<samochody>(Oferta);
+            lista.Sort();
+            Oferta = new LinkedList<samochody>(lista);
+        }
+        public void Sortuj_po_modelu_samochodu()
+        {
+            lista = new List<samochody>(Oferta);
+            lista.Sort(new ModelCOMPARATOR ());
+            Oferta = new LinkedList<samochody>(lista);
+            //Oferta.Sort(new ModelCOMPARATOR());
+        }
+
         public override string ToString()
         {
             Console.WriteLine( "OFERTA: \n" + "Ilość samochodów do wypożyczenia: \n" + Ilość_samochodów_do_wypożyczenia + "\nZawartość: \n");

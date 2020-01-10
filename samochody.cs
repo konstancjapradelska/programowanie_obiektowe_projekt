@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace po_projekt
 {
     [Serializable]
-    public class samochody
+    public class samochody : IComparable
     {
         public enum klasa { klasa_A = 1, klasa_B = 2, klasa_C = 3, klasa_D = 4, klasa_E = 5 }
         public enum silnik { benzynowy = 1, diesel = 2 };
@@ -44,7 +44,23 @@ namespace po_projekt
             Rodzaj_Nadwozia = rodzaj_Nadwozia;
             Rezerwacja = rezerw.Niezarezerwowany;
         }
+
+        public int CompareTo(object other)
+        {
          
+             if (other != null)
+             {
+                  samochody k = (samochody)other;
+                  int cmp = Klasa.CompareTo(k.Klasa);
+                  if (cmp != 0)
+                      return cmp;
+                  else
+                      return 0;
+             }
+             else
+                  return 1;
+        }
+
         public override string ToString()
         {
             return "\n" + "             Klasa: " + Klasa + "\n" + "             Marka: " + Marka + "\n" + "             Model: " + Model + "\n" + "             Silnik: " + Silnik + "\n" + "             Skrzynia biegów: " + Skrzynia_Biegów + "\n" + "             Rodzaj nadwozia: " + Rodzaj_Nadwozia;

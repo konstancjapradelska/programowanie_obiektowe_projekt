@@ -54,21 +54,52 @@ namespace po_projekt
                         Console.WriteLine("Twój wybór:");
                         wybór = Console.ReadLine();
                         if(wybór == "oferta") 
-                        {                      
-                            Console.WriteLine(Oferta);
+                        {
+                            Oferta = Oferta.OdczytajXML("zapis.xml") as oferta;
+                            Console.WriteLine("Wybierz sortowanie:");
+                            Console.WriteLine("Jeżeli chcesz sortować po klasie samochodu wybierz: klasa");
+                            Console.WriteLine("Jeżeli chcesz sortować po modelu samochodu wybierz: model");
+                            Console.WriteLine("Jeżeli chcesz sortować po cenie samochodu wybierz: cena");
+                            Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
+                            string wybór_sortowania;
+                            do
+                            {
+                                wybór_sortowania = Console.ReadLine();
+                                if (wybór_sortowania == "klasa")
+                                {
+                                    Console.WriteLine("SORTOWANIE PO KLASIE:");
+                                    Oferta.Sortuj_po_klasie_samochodu();
+                                    Console.WriteLine(Oferta);
+                                }
+                                else if (wybór_sortowania == "model")
+                                {
+                                    Console.WriteLine("SORTOWANIE PO MODELU:");
+                                    Oferta.Sortuj_po_modelu_samochodu();
+                                    Console.WriteLine(Oferta);
+                                }
+                                else if (wybór_sortowania =="cena")
+                                {
+                                    Console.WriteLine("opcja do dodania");
+                                }
+                                else if (wybór_sortowania == "koniec")
+                                    break;
+                            }
+                            while (wybór_sortowania != "koniec");
+                            
                         }
                         else if(wybór == "rezerwuj")
                         {
                             Console.WriteLine("Wybierz samochodów do rezerwacji:");                           
                             rezerwacja r1 = new rezerwacja();
                             r1.wybór_samochodu_do_rezerwacji(Oferta);
+                            oferta.ZapiszXML("zapis.xml", Oferta);
                         }
                         else if (wybór == "wypożycz")
                         {
                             Console.WriteLine("Wybierz samochodów do wypożyczenia:");
                             wypożyczanie w1 = new wypożyczanie();
                             w1.wypożycz(w1.wybór_samochodu_do_wypożyczenia(Oferta),Oferta);
-                           
+                            oferta.ZapiszXML("zapis.xml", Oferta);
                         }
                         else if (wybór == "koniec")
                             break;
@@ -173,14 +204,48 @@ namespace po_projekt
                                     while ((nadwozie != "combi") || (nadwozie != "hatchback") || (nadwozie != "sedan"));
                                                                       
                                     Oferta.Dodaj(d);
+
+                                    oferta.ZapiszXML("zapis.xml", Oferta);
                                 }
                                 else if (wybór == "usuń")
                                 {
                                     Oferta.Usuń(Oferta.wybór_samochodu_do_usunięcia());
+
+                                    oferta.ZapiszXML("zapis.xml", Oferta);
                                 }
                                 else if (wybór == "oferta")
                                 {
-                                    Console.WriteLine(Oferta);
+                                    Oferta = Oferta.OdczytajXML("zapis.xml") as oferta;
+                                    Console.WriteLine("Wybierz sortowanie:");
+                                    Console.WriteLine("Jeżeli chcesz sortować po klasie samochodu wybierz: klasa");
+                                    Console.WriteLine("Jeżeli chcesz sortować po modelu samochodu wybierz: model");
+                                    Console.WriteLine("Jeżeli chcesz sortować po cenie samochodu wybierz: cena");
+                                    Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
+                                    string wybór_sortowania;
+                                    do
+                                    {
+                                        wybór_sortowania = Console.ReadLine();
+                                        if (wybór_sortowania == "klasa")
+                                        {
+                                            Console.WriteLine("SORTOWANIE PO KLASIE:");
+                                            Oferta.Sortuj_po_klasie_samochodu();
+                                            Console.WriteLine(Oferta);
+                                        }
+                                        else if (wybór_sortowania == "model")
+                                        {
+                                            Console.WriteLine("SORTOWANIE PO MODELU:");
+                                            Oferta.Sortuj_po_modelu_samochodu();
+                                            Console.WriteLine(Oferta);
+                                        }
+                                        else if (wybór_sortowania == "cena")
+                                        {
+                                            Console.WriteLine("opcja do dodania");
+                                        }
+
+                                        else if (wybór_sortowania == "koniec")
+                                            break;
+                                    }
+                                    while (wybór_sortowania != "koniec");
                                 }
                                 else if (wybór == "koniec")
                                     break;
@@ -211,14 +276,19 @@ namespace po_projekt
             while (opcja != "koniec");
 
 
-            #region serializacja
-            oferta.ZapiszXML("zapis.xml", Oferta);
-            oferta klon = new oferta();
-            klon = klon.OdczytajXML("zapis.xml") as oferta;
-            Console.WriteLine(klon);
-            Console.ReadKey();
-            #endregion
+            //#region serializacja
+            //oferta.ZapiszXML("zapis.xml", Oferta);
+            //Oferta = Oferta.OdczytajXML("zapis.xml") as oferta;
+            //Console.WriteLine(Oferta);
 
+            //#endregion
+            //Console.WriteLine("SORTOWANIE PO KLASIE:");
+            //Oferta.Sortuj_po_klasie_samochodu();
+            //Console.WriteLine(Oferta);
+            //Console.WriteLine("SORTOWANIE PO MODELU:");
+            //Oferta.Sortuj_po_modelu_samochodu();
+            //Console.WriteLine(Oferta);
+            Console.ReadKey();
         }
 
     }
