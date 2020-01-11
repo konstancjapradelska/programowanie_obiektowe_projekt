@@ -25,7 +25,7 @@
     <Skrzynia_Biegów1>automatyczna</Skrzynia_Biegów1>
     <Rodzaj_Nadwozia1>combi</Rodzaj_Nadwozia1>
     <Model1>Ceed</Model1>
-    <Rezerwacja>Zarezerwowany</Rezerwacja>
+    <Rezerwacja>Niezarezerwowany</Rezerwacja>
   </samochody>
   <samochody>
     <Klasa1>klasa_C</Klasa1>
@@ -34,7 +34,7 @@
     <Skrzynia_Biegów1>manualna</Skrzynia_Biegów1>
     <Rodzaj_Nadwozia1>hatchback</Rodzaj_Nadwozia1>
     <Model1>Ceed</Model1>
-    <Rezerwacja>Zarezerwowany</Rezerwacja>
+    <Rezerwacja>Niezarezerwowany</Rezerwacja>
   </samochody>
   <samochody>
     <Klasa1>klasa_D</Klasa1>
@@ -57,19 +57,19 @@
   <samochody>
     <Klasa1>klasa_E</Klasa1>
     <Marka1>BMW</Marka1>
+    <Silnik1>diesel</Silnik1>
+    <Skrzynia_Biegów1>automatyczna</Skrzynia_Biegów1>
+    <Rodzaj_Nadwozia1>sedan</Rodzaj_Nadwozia1>
+    <Model1>525</Model1>
+    <Rezerwacja>Niezarezerwowany</Rezerwacja>
+  </samochody>
+  <samochody>
+    <Klasa1>klasa_E</Klasa1>
+    <Marka1>BMW</Marka1>
     <Silnik1>benzynowy</Silnik1>
     <Skrzynia_Biegów1>automatyczna</Skrzynia_Biegów1>
     <Rodzaj_Nadwozia1>combi</Rodzaj_Nadwozia1>
     <Model1>550</Model1>
-    <Rezerwacja>Niezarezerwowany</Rezerwacja>
-  </samochody>
-  <samochody>
-    <Klasa1>klasa_A</Klasa1>
-    <Marka1>Toyota</Marka1>
-    <Silnik1>benzynowy</Silnik1>
-    <Skrzynia_Biegów1>manualna</Skrzynia_Biegów1>
-    <Rodzaj_Nadwozia1>combi</Rodzaj_Nadwozia1>
-    <Model1>Yaris</Model1>
     <Rezerwacja>Niezarezerwowany</Rezerwacja>
   </samochody>
 </ArrayOfSamochody>

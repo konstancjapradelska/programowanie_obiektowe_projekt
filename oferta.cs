@@ -114,12 +114,17 @@ namespace po_projekt
             lista = new List<samochody>(Oferta);
             lista.Sort(new ModelCOMPARATOR ());
             Oferta = new LinkedList<samochody>(lista);
-            //Oferta.Sort(new ModelCOMPARATOR());
         }
 
         public override string ToString()
         {
-            Console.WriteLine( "OFERTA: \n" + "Ilość samochodów do wypożyczenia: \n" + Ilość_samochodów_do_wypożyczenia + "\nZawartość: \n");
+            int Ilość_samochodów_zarezerwowanych=0;
+            foreach (samochody element in Oferta)
+            {
+                if (element.Rezerwacja == rezerw.Zarezerwowany)
+                    Ilość_samochodów_zarezerwowanych++;
+            }
+            Console.WriteLine( "OFERTA: \n" + "Ilość samochodów do wypożyczenia: \n" + Ilość_samochodów_do_wypożyczenia + "\nIlość zarezerwowanych samochdów: " + Ilość_samochodów_zarezerwowanych + "\nZawartość: \n");
             int count = 0;
             foreach (samochody element in Oferta)
             {

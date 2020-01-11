@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//ofc
 namespace po_projekt
 {
     class Program
@@ -30,10 +29,34 @@ namespace po_projekt
             Oferta.Dodaj(s6);
             Oferta.Dodaj(s7);
             Oferta.Dodaj(s8);
-#endregion
-            
-            string opcja;
+            oferta.ZapiszXML("zapis.xml", Oferta);
+            #endregion
 
+            #region baza pracowników
+            pracownik p1 = new pracownik { Imie = "Jan"  , Nazwisko = "Janowski" , Pesel ="82080328496" , Identyfikator = "100", Stanowisko1 = pracownik.Stanowisko.kierownik };
+            pracownik p2 = new pracownik { Imie = "Beata"  , Nazwisko = "Jurkiewicz" , Pesel = "92102201347" , Identyfikator ="101" , Stanowisko1 = pracownik.Stanowisko.zwykły_pracownik };
+            pracownik p3 = new pracownik { Imie = "Anna" , Nazwisko = "Dobrowolska", Pesel = "92031507772" , Identyfikator ="102" , Stanowisko1 = pracownik.Stanowisko.zwykły_pracownik };
+            pracownik p4 = new pracownik { Imie = "Jakub" , Nazwisko = "Grobelczyk" , Pesel = " 90070100211" , Identyfikator ="103" , Stanowisko1 = pracownik.Stanowisko.zwykły_pracownik };
+            pracownik p5 = new pracownik { Imie = "Wiktor" , Nazwisko = "Jagielski", Pesel = " 92031532652", Identyfikator ="104" , Stanowisko1 = pracownik.Stanowisko.zwykły_pracownik };
+
+            pracownicy Pracownicy = new pracownicy();
+            Pracownicy.Dodaj(p1);
+            Pracownicy.Dodaj(p2);
+            Pracownicy.Dodaj(p3);
+            Pracownicy.Dodaj(p4);
+            Pracownicy.Dodaj(p5);
+
+            #endregion
+
+            #region baza klientów
+            klient k1 = new klient { Imie = "Witold"  , Nazwisko = "Adamski" , Pesel = "90070142412", Numer_klienta = "200" };
+            klient k2 = new klient { Imie = "Paulina" , Nazwisko = "Szymańska" , Pesel = "92102266738", Numer_klienta = "201" };
+            klient k3 = new klient { Imie = "Adam" , Nazwisko = "Winnicki" , Pesel = "91072235964 K", Numer_klienta = "202" };
+            klient k4 = new klient { Imie = "Radosław" , Nazwisko = "Leszczyński" , Pesel = "93112225023", Numer_klienta = "203" };
+            klient k5 = new klient { Imie = "Błażej" , Nazwisko = "Tomaszewski" , Pesel = "92051613915", Numer_klienta = "204" };
+            #endregion
+
+            string opcja;
             do
             {   Console.WriteLine("Proszę wybrać opcję:\n");
                 Console.WriteLine("Jestem klientem -> k");
@@ -43,7 +66,10 @@ namespace po_projekt
                 if (opcja == "k")
                 {
                     Console.WriteLine("Wybrano opcję : klient");
-                   
+                    klient k = new klient();
+                    Console.WriteLine("Proszę o wprowadzenie numeru klienta:\n");
+                    k.Numer_klienta = Console.ReadLine();
+
                     string wybór;
                     do
                     {
@@ -113,15 +139,21 @@ namespace po_projekt
                 else if (opcja == "p")
                 {
                     Console.WriteLine("Wybrano opcję : pracownik");
+                    pracownik p = new pracownik();
+                    Console.WriteLine("Proszę o wprowadzenie identyfikatora:\n");
+                    p.Identyfikator = Console.ReadLine();
+                    
                     Console.WriteLine("Proszę o wprowadzenie hasła:\n");
                     string hasło;
                     do
                     {
+                        pracownik P = new pracownik();
+                        P = Pracownicy.sprawdzenie(p) as pracownik;
                         hasło = Console.ReadLine();
                         if(hasło == "programowanie")
                         {
                             Console.WriteLine("Poprawe hasło, zapraszamy.\n");
-                            
+                            Console.WriteLine("Zalogowano się do systemu jako:\n" + P);
                             string wybór;
                             do
                             {
@@ -274,8 +306,7 @@ namespace po_projekt
                 }
             }
             while (opcja != "koniec");
-
-
+           
             //#region serializacja
             //oferta.ZapiszXML("zapis.xml", Oferta);
             //Oferta = Oferta.OdczytajXML("zapis.xml") as oferta;

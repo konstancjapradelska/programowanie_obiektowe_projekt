@@ -27,20 +27,22 @@ namespace po_projekt
             foreach (samochody element in s.Oferta)
             {
                 Console.WriteLine("Jeżeli chcesz zarezerwować to auto wybierz: TAK");
-                Console.WriteLine(element);
-                wybór = Console.ReadLine();
-                if (wybór == "TAK")
+                if (element.Rezerwacja == 0)
                 {
-                    k = element;
-                    rezerwuj(k);
-                    break;
+                    Console.WriteLine(element);
+                    wybór = Console.ReadLine();
+                    if (wybór == "TAK")
+                    {
+                        k = element;
+                        rezerwuj(k);
+                        break;
+                    }
+                    else
+                        continue;
                 }
-                else
-                    continue;
             }
             return k;
         }
-
         public override string ToString()
         {
             Console.WriteLine("\nIlość zarezerwowanych samochdów: " + Ilość_samochodów_zarezerwowanych);
