@@ -54,6 +54,13 @@ namespace po_projekt
             klient k3 = new klient { Imie = "Adam" , Nazwisko = "Winnicki" , Pesel = "91072235964 K", Numer_klienta = "202" };
             klient k4 = new klient { Imie = "Radosław" , Nazwisko = "Leszczyński" , Pesel = "93112225023", Numer_klienta = "203" };
             klient k5 = new klient { Imie = "Błażej" , Nazwisko = "Tomaszewski" , Pesel = "92051613915", Numer_klienta = "204" };
+
+            klienci Klienci = new klienci();
+            Klienci.Dodaj(k1);
+            Klienci.Dodaj(k2);
+            Klienci.Dodaj(k3);
+            Klienci.Dodaj(k4);
+            Klienci.Dodaj(k5);
             #endregion
 
             string opcja;
@@ -69,7 +76,9 @@ namespace po_projekt
                     klient k = new klient();
                     Console.WriteLine("Proszę o wprowadzenie numeru klienta:\n");
                     k.Numer_klienta = Console.ReadLine();
-
+                    klient K = new klient();
+                    K = Klienci.sprawdzenie(k) as klient;
+                    Console.WriteLine("Zalogowano jako klient:\n" + K);
                     string wybór;
                     do
                     {
