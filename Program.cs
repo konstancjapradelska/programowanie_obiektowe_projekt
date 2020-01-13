@@ -66,7 +66,7 @@ namespace po_projekt
             string opcja;
             do
             {
-                Console.WriteLine("                                     MENU\n\n");
+                Console.WriteLine("                                     MENU\n\n  ");
                 Console.WriteLine("Proszę wybrać opcję :\n");
                 Console.WriteLine("Jestem klientem : k");
                 Console.WriteLine("Jestem pracownikiem : p");
