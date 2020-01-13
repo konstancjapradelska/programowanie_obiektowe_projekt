@@ -13,7 +13,7 @@ namespace po_projekt
         {
             Pracownicy.Add(p);
         }
-        public void Usuń(pracownik p)
+        public virtual void Usuń(pracownik p)
         {
             Pracownicy.Remove(p);
         }
@@ -29,6 +29,25 @@ namespace po_projekt
                 }
             }
             return wynik;
+        }
+        public pracownik wybór_pracownika_do_usunięcia()
+        {
+            pracownik p = new pracownik();
+            string wybór;
+            Console.WriteLine("Jeżeli chcesz usunąć danego pracownika wybierz: TAK");
+            foreach (pracownik element in Pracownicy)
+            {
+                Console.WriteLine(element);
+                wybór = Console.ReadLine();
+                if (wybór == "TAK")
+                {
+                    p = element;
+                    break;
+                }
+                else continue;
+            }
+
+            return p;
         }
         public override string ToString()
         {

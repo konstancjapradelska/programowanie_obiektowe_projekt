@@ -35,5 +35,16 @@ namespace po_projekt
             }
             return wynik;
         }
+        public override string ToString()
+        {
+            int count = 0;
+            Console.WriteLine("Liczba klientów: "+ liczba_klientów +"\n");
+            foreach (klient element in Klienci)
+            {
+                count++;
+                Console.WriteLine($"Klient #{count}: {element}");
+            }
+            return "";
+        }
     }
 }

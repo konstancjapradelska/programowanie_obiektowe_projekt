@@ -16,6 +16,7 @@ namespace po_projekt
         public string Identyfikator { get => identyfikator; set => identyfikator = value; }
         internal Stanowisko Stanowisko1 { get => stanowisko; set => stanowisko = value; }
 
+        #region konstruktory
         public pracownik()
         {
         }
@@ -43,6 +44,7 @@ namespace po_projekt
             Pesel = pESEL ?? throw new ArgumentNullException(nameof(pESEL));
             Identyfikator = identyfikator ?? throw new ArgumentNullException(nameof(identyfikator));
         }
+        #endregion
 
         public override string ToString()
         {

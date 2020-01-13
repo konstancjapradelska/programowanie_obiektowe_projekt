@@ -65,16 +65,18 @@ namespace po_projekt
 
             string opcja;
             do
-            {   Console.WriteLine("Proszę wybrać opcję:\n");
-                Console.WriteLine("Jestem klientem -> k");
-                Console.WriteLine("Jestem pracownikiem -> p");
-                Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
+            {
+                Console.WriteLine("                                     MENU\n\n");
+                Console.WriteLine("Proszę wybrać opcję :\n");
+                Console.WriteLine("Jestem klientem : k");
+                Console.WriteLine("Jestem pracownikiem : p");
+                Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec\n");
                 opcja = Console.ReadLine();
                 if (opcja == "k")
                 {
                     Console.WriteLine("Wybrano opcję : klient");
                     klient k = new klient();
-                    Console.WriteLine("Proszę o wprowadzenie numeru klienta:\n");
+                    Console.WriteLine("Proszę o wprowadzenie numeru klienta:");
                     k.Numer_klienta = Console.ReadLine();
                     klient K = new klient();
                     K = Klienci.sprawdzenie(k) as klient;
@@ -82,10 +84,11 @@ namespace po_projekt
                     string wybór;
                     do
                     {
-                        Console.WriteLine("Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
-                        Console.WriteLine("Jeżeli chcesz zarezerwować samochód wybierz: rezerwuj");
-                        Console.WriteLine("Jeżeli chcesz wypożyczyć samochód wybierz: wypożycz");
-                        Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
+                        Console.WriteLine("                                     MENU\n\n");
+                        Console.WriteLine("                Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
+                        Console.WriteLine("                Jeżeli chcesz zarezerwować samochód wybierz: rezerwuj");
+                        Console.WriteLine("                Jeżeli chcesz wypożyczyć samochód wybierz: wypożycz");
+                        Console.WriteLine("                Jeżeli chcesz wyjść wybierz : koniec\n");
                         Console.WriteLine("Twój wybór:");
                         wybór = Console.ReadLine();
                         if(wybór == "oferta") 
@@ -149,10 +152,10 @@ namespace po_projekt
                 {
                     Console.WriteLine("Wybrano opcję : pracownik");
                     pracownik p = new pracownik();
-                    Console.WriteLine("Proszę o wprowadzenie identyfikatora:\n");
+                    Console.WriteLine("Proszę o wprowadzenie identyfikatora:");
                     p.Identyfikator = Console.ReadLine();
                     
-                    Console.WriteLine("Proszę o wprowadzenie hasła:\n");
+                    Console.WriteLine("Proszę o wprowadzenie hasła:");
                     string hasło;
                     do
                     {
@@ -166,10 +169,18 @@ namespace po_projekt
                             string wybór;
                             do
                             {
-                                Console.WriteLine("Jeżeli chcesz dodać samochód do oferty wybierz: dodaj");
-                                Console.WriteLine("Jeżeli chcesz usunąć samochód z oferty wybierz: usuń");
-                                Console.WriteLine("Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
-                                Console.WriteLine("Jeżeli chcesz wyjść wybierz : koniec");
+                                Console.WriteLine("                                     MENU\n\n");
+                                if (P.Stanowisko1 == pracownik.Stanowisko.kierownik)
+                                {
+                                    Console.WriteLine("                Jeżeli chcesz dodać pracownika wybierz: dodajp");
+                                    Console.WriteLine("                Jeżeli chcesz usunąć pracownika wybierz: usuńp");
+                                    Console.WriteLine("                Jeżeli chcesz wyśwetlić listę pracowników wybierz: listap");
+                                }
+                                Console.WriteLine("                Jeżeli chcesz dodać samochód do oferty wybierz: dodaj");
+                                Console.WriteLine("                Jeżeli chcesz usunąć samochód z oferty wybierz: usuń");
+                                Console.WriteLine("                Jeżeli chcesz wyświetlić naszą ofertę wybierz: oferta");
+                                Console.WriteLine("                Jeżeli chcesz wyśwetlić listę klientów wybierz: lista");
+                                Console.WriteLine("                Jeżeli chcesz wyjść wybierz : koniec");
                                 Console.WriteLine("Twój wybór:");
                                 wybór = Console.ReadLine();
                                 if (wybór == "dodaj")
@@ -288,6 +299,51 @@ namespace po_projekt
                                     }
                                     while (wybór_sortowania != "koniec");
                                 }
+                                else if (wybór == "listak")
+                                {
+                                    Console.WriteLine(Klienci);
+                                }
+                                if (P.Stanowisko1 == pracownik.Stanowisko.kierownik)
+                                {
+                                    if(wybór == "dodajp")
+                                    {
+                                        pracownik p6 = new pracownik();
+                                        Console.WriteLine("\nPodaj imie nowego pracownika: ");
+                                        p6.Imie = Console.ReadLine();
+                                        Console.WriteLine("\nPodaj nazwisko nowego pracownika: ");
+                                        p6.Nazwisko = Console.ReadLine();
+                                        Console.WriteLine("\nPodaj PESEL nowego pracownika: ");
+                                        p6.Pesel = Console.ReadLine();
+                                        Console.WriteLine("\nPodaj identyfikator nowego pracownika: ");
+                                        p6.Identyfikator = Console.ReadLine();
+                                        string stanowisko;
+                                        do
+                                        {
+                                            Console.WriteLine("Podaj stanowisko nowego pracownika: (kierownik lub zwykły_pracownik)");
+                                            stanowisko = Console.ReadLine();
+                                            if(stanowisko == "kierownik")
+                                                p6.Stanowisko1 = pracownik.Stanowisko.kierownik;
+                                            else if(stanowisko == "zwykły_pracownik")
+                                                p6.Stanowisko1 = pracownik.Stanowisko.zwykły_pracownik;
+                                            else
+                                                Console.WriteLine("Prosze wybrac : kierownik lub zwykły_pracownik");
+
+                                        }
+                                        while (stanowisko != "kierownik" && stanowisko != "zwykły_pracownik");
+                                       
+                                        Pracownicy.Dodaj(p6);
+                                    }
+
+                                    if(wybór == "usuńp")
+                                    {
+                                        Pracownicy.Usuń(Pracownicy.wybór_pracownika_do_usunięcia());
+                                    }
+                                    if(wybór == "listap")
+                                    {
+                                        Console.WriteLine(Pracownicy);
+                                    }
+                                }
+
                                 else if (wybór == "koniec")
                                     break;
                                 else 
